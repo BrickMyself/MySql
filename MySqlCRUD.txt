@@ -1,0 +1,569 @@
+Microsoft Windows [版本 10.0.18362.657]
+(c) 2019 Microsoft Corporation。保留所有权利。
+
+C:\Users\Dell>mysql -u root -p
+Enter password:
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 11
+Server version: 5.7.28 MySQL Community Server (GPL)
+
+Copyright (c) 2000, 2019, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+4 rows in set (0.00 sec)
+
+mysql> show tables;
+ERROR 1046 (3D000):
+mysql> use mysql
+Database changed
+mysql> show talbes;
+ERROR 1064 (42000):
+mysql> show tables;
++---------------------------+
+| Tables_in_mysql           |
++---------------------------+
+| columns_priv              |
+| db                        |
+| engine_cost               |
+| event                     |
+| func                      |
+| general_log               |
+| gtid_executed             |
+| help_category             |
+| help_keyword              |
+| help_relation             |
+| help_topic                |
+| innodb_index_stats        |
+| innodb_table_stats        |
+| ndb_binlog_index          |
+| plugin                    |
+| proc                      |
+| procs_priv                |
+| proxies_priv              |
+| server_cost               |
+| servers                   |
+| slave_master_info         |
+| slave_relay_log_info      |
+| slave_worker_info         |
+| slow_log                  |
+| tables_priv               |
+| time_zone                 |
+| time_zone_leap_second     |
+| time_zone_name            |
+| time_zone_transition      |
+| time_zone_transition_type |
+| user                      |
++---------------------------+
+31 rows in set (0.01 sec)
+
+mysql> creat database db_hfy
+    -> ;
+ERROR 1064 (42000):
+mysql> quit
+Bye
+
+C:\Users\Dell>mysql -u root -p
+Enter password:
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 12
+Server version: 5.7.28 MySQL Community Server (GPL)
+
+Copyright (c) 2000, 2019, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> create database db_hfy
+    -> ；
+    -> ；;
+ERROR 1064 (42000):
+mysql> use mysql
+Database changed
+mysql> create database db_hfy
+    -> ;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| db_hfy             |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+5 rows in set (0.00 sec)
+
+mysql> use db_hfy
+Database changed
+mysql> drop database db_hfy
+    -> ;
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+4 rows in set (0.00 sec)
+
+mysql> create database db_hfy
+    -> ;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> use db_hfy
+Database changed
+mysql> ;
+ERROR:
+No query specified
+
+mysql>
+mysql>
+mysql> create table stu_test (   id int,   name varchar(20) comment '姓名',   password varchar(50) comment '密码',   age int,   sex varchar(1),   birthday timestamp,   amout decimal(13,2),   resume text );
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> DROP [TEMPORARY] TABLE [IF EXISTS] tbl_name [, tbl_name] ...
+    -> -- 删除 stu_test 表 drop table stu_test; -- 如果存在 stu_test 表，则删除 stu_test 表 drop table if exists stu_test; ^Z^Z
+    -> quit
+    ->
+    -> ;
+ERROR 1064 (42000):
+mysql> use db_hfy
+Database changed
+mysql> create table std_list(
+    -> id int,
+    -> name varchar(20) comment '名字',
+    -> tell varchar(20) comment '电话',
+    -> ）;
+ERROR 1064 (42000):
+mysql> use database db_hfy;
+ERROR 1049 (42000): Unknown error 1049
+mysql> quit
+Bye
+
+C:\Users\Dell>mysql -u root -p
+Enter password:
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 13
+Server version: 5.7.28 MySQL Community Server (GPL)
+
+Copyright (c) 2000, 2019, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> use database db_hfy
+ERROR 1049 (42000): Unknown error 1049
+mysql> create database db_hfy
+    -> ;
+ERROR 1007 (HY000): Unknown error 1007
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| db_hfy             |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+5 rows in set (0.00 sec)
+
+mysql> use database db_hfy
+ERROR 1049 (42000): Unknown error 1049
+mysql> use db_hfy
+Database changed
+mysql> create table std_list(
+    -> id int comment '学号',
+    -> name varchar(20) comment '姓名',
+    -> tell varchar(20) comment '电话'
+    -> );
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> desc std_list;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| id    | int(11)     | YES  |     | NULL    |       |
+| name  | varchar(20) | YES  |     | NULL    |       |
+| tell  | varchar(20) | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+3 rows in set (0.01 sec)
+
+mysql> intsert std_list values(
+    -> 48,
+    -> '韩逢源',
+    -> '15339257765'
+    -> );
+ERROR 1064 (42000):
+mysql> insert std_list values(
+    -> 48,
+    -> '韩逢源',
+    -> '15339257765'
+    -> );
+Query OK, 1 row affected (0.01 sec)
+
+mysql> desc std_list;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| id    | int(11)     | YES  |     | NULL    |       |
+| name  | varchar(20) | YES  |     | NULL    |       |
+| tell  | varchar(20) | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> select * from std_list;
++------+-----------+-------------+
+| id   | name      | tell        |
++------+-----------+-------------+
+|   48 | 韩逢源    | 15339257765 |
++------+-----------+-------------+
+1 row in set (0.01 sec)
+
+mysql> create tables std_test(
+    -> id tinyint comment'学号',
+    -> name varchar(20) comment'姓名',
+    -> tell varchar(20) comment'电话'
+    -> );
+ERROR 1064 (42000):
+mysql> create tables std_test(
+    -> quit;
+ERROR 1064 (42000):
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| db_hfy             |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+5 rows in set (0.00 sec)
+
+mysql> use db_hfy;
+Database changed
+mysql> create table std_test(
+    -> id tinyint comment '学号',
+    -> name varchar(20) comment'姓名',
+    -> tell varchar(20) comment'电话'
+    -> );
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> select * from std_test;
+Empty set (0.00 sec)
+
+mysql> show talbes;
+ERROR 1064 (42000):
+mysql> desc std_test;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| id    | tinyint(4)  | YES  |     | NULL    |       |
+| name  | varchar(20) | YES  |     | NULL    |       |
+| tell  | varchar(20) | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> insert std_test values(
+    -> 48,
+    -> '韩逢源',
+    -> '15339257765'
+    -> );
+Query OK, 1 row affected (0.01 sec)
+
+mysql> desc std_test;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| id    | tinyint(4)  | YES  |     | NULL    |       |
+| name  | varchar(20) | YES  |     | NULL    |       |
+| tell  | varchar(20) | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> select * from std_test;
++------+-----------+-------------+
+| id   | name      | tell        |
++------+-----------+-------------+
+|   48 | 韩逢源    | 15339257765 |
++------+-----------+-------------+
+1 row in set (0.00 sec)
+
+mysql> show full columns from std_test;
++-------+-------------+-----------------+------+-----+---------+-------+---------------------------------+---------+
+| Field | Type        | Collation       | Null | Key | Default | Extra | Privileges                      | Comment |
++-------+-------------+-----------------+------+-----+---------+-------+---------------------------------+---------+
+| id    | tinyint(4)  | NULL            | YES  |     | NULL    |       | select,insert,update,references | 学号    |
+| name  | varchar(20) | utf8_general_ci | YES  |     | NULL    |       | select,insert,update,references | 姓名    |
+| tell  | varchar(20) | utf8_general_ci | YES  |     | NULL    |       | select,insert,update,references | 电话    |
++-------+-------------+-----------------+------+-----+---------+-------+---------------------------------+---------+
+3 rows in set (0.00 sec)
+
+mysql> select id from std_test;
++------+
+| id   |
++------+
+|   48 |
++------+
+1 row in set (0.01 sec)
+
+mysql> select name  from std_test where id='48';
++-----------+
+| name      |
++-----------+
+| 韩逢源    |
++-----------+
+1 row in set (0.01 sec)
+
+mysql> upate std_test
+    -> set id =12;
+ERROR 1064 (42000):
+mysql> update std_test set id=23
+    -> ;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> desc std_test;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| id    | tinyint(4)  | YES  |     | NULL    |       |
+| name  | varchar(20) | YES  |     | NULL    |       |
+| tell  | varchar(20) | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> seclect *from std_test;
+ERROR 1064 (42000):
+mysql> select *from std_test;
++------+-----------+-------------+
+| id   | name      | tell        |
++------+-----------+-------------+
+|   23 | 韩逢源    | 15339257765 |
++------+-----------+-------------+
+1 row in set (0.00 sec)
+
+mysql> create table std_marks(
+    -> math int comment'数学成绩',
+    -> chinese int comment '语文成绩
+    '> ;
+    '>
+    '> ；
+    '> ）；
+    '> );
+    '>
+    '>
+    '> quit
+    '> ;
+    '>
+    '>
+    '>
+    '> ^Z
+Bye
+
+C:\Users\Dell>mysql -u root -p
+Enter password:
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 14
+Server version: 5.7.28 MySQL Community Server (GPL)
+
+Copyright (c) 2000, 2019, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql>
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| db_hfy             |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+5 rows in set (0.00 sec)
+
+mysql> use db_hfy;
+Database changed
+mysql> show talbes;
+ERROR 1064 (42000):
+mysql> show tables;
++------------------+
+| Tables_in_db_hfy |
++------------------+
+| std_list         |
+| std_test         |
+| stu_test         |
++------------------+
+3 rows in set (0.00 sec)
+
+mysql> creat table std_mark(
+    -> math int comment'数学',
+    -> chinese int comment'语文',
+    -> english int comment'英语',
+    -> id int comment'编号',
+    -> name varchar(20) comment'姓名'
+    -> );
+ERROR 1064 (42000):
+mysql>  creat table std_mark(
+    ->     -> math int comment'数学',
+    ->     -> chinese int comment'语文',
+    ->     -> english int comment'英语',
+    ->     -> id int comment'编号',
+    ->     -> name varchar(20) comment'姓名'
+    -> quit
+    -> ;
+ERROR 1064 (42000):
+mysql> create table std_mark(
+    -> id int comment'学号',
+    -> name varchar(20) comment '姓名',
+    -> math int comment'数学',
+    -> chinese int comment'语文',
+    -> english int comment '英语'
+    -> );
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> desc std_mark;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| id      | int(11)     | YES  |     | NULL    |       |
+| name    | varchar(20) | YES  |     | NULL    |       |
+| math    | int(11)     | YES  |     | NULL    |       |
+| chinese | int(11)     | YES  |     | NULL    |       |
+| english | int(11)     | YES  |     | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+mysql> insert std_mark (id,name,math,chinese,english)values
+    -> (1, '王一',78,68,79),
+    -> (2, '吴二',69,89,90),
+    -> (3, '张三',90,89,70),
+    -> (4, '李四',70，80，90）,
+    -> (5, '麻五',89,70,90);
+ERROR 1064 (42000):
+mysql> insert std_mark values
+    -> (
+    -> 1,
+    -> '王一',
+    -> 67,
+    -> 78,
+    -> 89
+    -> );
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert std_mark (id,name,math,chinese,engkish) values
+    -> (2,'吴二',79,89,90),
+    -> (3,'张三',79,89,70);
+ERROR 1054 (42S22): Unknown error 1054
+mysql> insert std_mark (id ,name,math,chinese,english) values
+    -> (2, '吴二',69,89,90),
+    -> (3, '张三',90,89,70);
+Query OK, 2 rows affected (0.01 sec)
+
+mysql>  insert std_mark (id ,name,math,chinese,english) values
+    -> (4,'李四',68,79,89) ;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select *from std_mark;
++------+--------+------+---------+---------+
+| id   | name   | math | chinese | english |
++------+--------+------+---------+---------+
+|    1 | 王一   |   67 |      78 |      89 |
+|    2 | 吴二   |   69 |      89 |      90 |
+|    3 | 张三   |   90 |      89 |      70 |
+|    4 | 李四   |   68 |      79 |      89 |
++------+--------+------+---------+---------+
+4 rows in set (0.00 sec)
+
+mysql> SELECT name FROM student ORDER BY math;
+ERROR 1146 (42S02): Unknown error 1146
+mysql> select name from std_mark order by math;
++--------+
+| name   |
++--------+
+| 王一   |
+| 李四   |
+| 吴二   |
+| 张三   |
++--------+
+4 rows in set (0.01 sec)
+
+mysql> seclect name,math from std_mark;
+ERROR 1064 (42000):
+mysql> select name,math from std_mark;
++--------+------+
+| name   | math |
++--------+------+
+| 王一   |   67 |
+| 吴二   |   69 |
+| 张三   |   90 |
+| 李四   |   68 |
++--------+------+
+4 rows in set (0.00 sec)
+
+mysql> select name,math from std_mark order by math;
++--------+------+
+| name   | math |
++--------+------+
+| 王一   |   67 |
+| 李四   |   68 |
+| 吴二   |   69 |
+| 张三   |   90 |
++--------+------+
+4 rows in set (0.00 sec)
+
+mysql> select name,math from std_mark order by math desc;
++--------+------+
+| name   | math |
++--------+------+
+| 张三   |   90 |
+| 吴二   |   69 |
+| 李四   |   68 |
+| 王一   |   67 |
++--------+------+
+4 rows in set (0.00 sec)
+
+mysql> select name,math+chinese+english total from std_mark order by math+chinese+english desc;
++--------+-------+
+| name   | total |
++--------+-------+
+| 张三   |   249 |
+| 吴二   |   248 |
+| 李四   |   236 |
+| 王一   |   234 |
++--------+-------+
+4 rows in set (0.01 sec)
+
+mysql>
