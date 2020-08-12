@@ -1,0 +1,50 @@
+//这个用来测试之前在C语言中学过的文件操作相关的函数操作
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+        FILE*fp=NULL;
+        fp=fopen("./text.txt","r+");
+        if(fp==NULL)
+        {
+        perror("fopen error");//打印上一个系统调用接口使用错误原因
+        return -1;
+        }
+        fseek(fp,0,SEEK_SET);
+        char *ptr="The good and evil of the world are linked together\n";
+        int ret = fwrite(ptr,strlen(ptr),1,fp);//(数据(指针),块大小,块个数,流指针);
+        if(ret==0)
+        {
+        perror("fwrite error");
+        return -1;
+        }
+        else
+        {
+        printf("写入成功\n");
+        printf("write ret:%d\n",ret);
+        }
+        char tmp[1024]={};
+        int count=fread(tmp,1,1023,fp);
+        printf("count=%d %s",count,tmp);
+        fclose(fp);//关闭文件释放资源;
+        return 0;
+}
+
+//这是用来演示系统调用io接口的使用
+#include<stdio.h>
+#include<fcntl.h>
+#include<string.h>
+#include<unistd.h>
+int main()
+{
+        int fd=-1;
+        umask(0);
+        fd=open("./test.txt",O_RDWR|O_CREAT,0777);
+        if(fd<0)
+        {
+                perror("open error");
+                return -1;
+        }
+        close(fd);
+        return 0;
+}
